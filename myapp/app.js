@@ -12,7 +12,10 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+
+//app.set('view engine','hbs');
+app.engine("kix", require("hbs").__express);
+app.set('view engine', 'kix');
 
 app.use(favicon(__dirname+"/public/images/favicon.ico"));
 app.use(logger('dev'));
